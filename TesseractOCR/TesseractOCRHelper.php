@@ -23,7 +23,7 @@ class TesseractOCRHelper
      * Path of the temp image
      * @var string
      */
-		protected $filepath;
+		private $filepath;
 	
 	/**
      * Class constructor, loads the image to be recognized
