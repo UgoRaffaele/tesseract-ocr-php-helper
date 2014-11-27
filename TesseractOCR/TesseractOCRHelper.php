@@ -77,6 +77,19 @@ class TesseractOCRHelper
       unlink($this->filepath);
     }
 
+	/**
+		* Performs the sequence of steps needed to recognize the patient name
+		*
+		* @return string
+		*/
+		public function nameRow()
+		{
+			$this->cropImage(350, 27, 360, 2);
+			$recognizedText = $this->recognition();
+			$this->deleteTmp();
+			return $recognizedText;
+		}
+
   /**
     * Performs the sequence of steps needed to recognize text inside the first row of the image
     *
