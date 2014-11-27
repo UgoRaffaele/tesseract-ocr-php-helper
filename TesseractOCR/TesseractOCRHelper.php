@@ -13,17 +13,17 @@
 
 class TesseractOCRHelper
 {
-    /**
+  /**
      * The original image to be analyzed
      * @var string
      */
     protected $image;
 	
-	/**
+  /**
      * Path of the temp image
      * @var string
      */
-	  private $filepath;
+		protected $filepath;
 	
 	/**
      * Class constructor, loads the image to be recognized
@@ -33,7 +33,7 @@ class TesseractOCRHelper
     public function __construct($image)
     {
         $this->image = $image;
-		$this->filepath = "/tmp/crop_" . basename($this->image);
+				$this->filepath = "/tmp/crop_" . basename($this->image);
     }
 	
 	/**
@@ -57,13 +57,13 @@ class TesseractOCRHelper
      */
     public function cropImage($width, $height, $startx, $starty)
     {
-		$src = imagecreatefromjpeg($this->image);
-		$dest = imagecreatetruecolor($width, $height);
-				
-		imagecopy($dest, $src, 0, 0, $startx, $starty, $width, $height);
-		imagefilter($dest, IMG_FILTER_GRAYSCALE);
-		imagejpeg($dest, $this->filepath);
-		imagedestroy($dest);
+				$src = imagecreatefromjpeg($this->image);
+				$dest = imagecreatetruecolor($width, $height);
+						
+				imagecopy($dest, $src, 0, 0, $startx, $starty, $width, $height);
+				imagefilter($dest, IMG_FILTER_GRAYSCALE);
+				imagejpeg($dest, $this->filepath);
+				imagedestroy($dest);
     }
 	
 	/**
@@ -73,7 +73,7 @@ class TesseractOCRHelper
      */
     public function deleteTmp()
     {
-		unlink($this->filepath);
+				unlink($this->filepath);
     }
 
 	/**
