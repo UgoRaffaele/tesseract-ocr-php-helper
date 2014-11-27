@@ -13,17 +13,17 @@
 
 class TesseractOCRHelper
 {
-  /**
+	/**
      * The original image to be analyzed
      * @var string
      */
     protected $image;
 	
-  /**
+	/**
      * Path of the temp image
      * @var string
      */
-		private $filepath;
+	private $filepath;
 	
 	/**
      * Class constructor, loads the image to be recognized
@@ -52,7 +52,7 @@ class TesseractOCRHelper
 	/**
      * Performs the seqence of steps needed to crop image
      *
-	   * @params int, int, int, int
+	 * @params int, int, int, int
      * @return void
      */
     public function cropImage($width, $height, $startx, $starty)
